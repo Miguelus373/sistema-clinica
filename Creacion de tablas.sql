@@ -1,6 +1,6 @@
 -- Tabla Personal
 CREATE TABLE Personal (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   cedula VARCHAR(20) UNIQUE NOT NULL,
   nombre VARCHAR(50) NOT NULL,
   apellido VARCHAR(50) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE Personal (
 
 -- Tabla Médico
 CREATE TABLE Medico (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   cedula VARCHAR(20) UNIQUE NOT NULL,
   nombre VARCHAR(50) NOT NULL,
   apellido VARCHAR(50) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE Medico (
 
 -- Tabla Paciente
 CREATE TABLE Paciente (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   cedula VARCHAR(20) UNIQUE NOT NULL,
   nombre VARCHAR(50) NOT NULL,
   apellido VARCHAR(50) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE Paciente (
 
 -- Tabla Consulta
 CREATE TABLE Consulta (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fecha DATE NOT NULL,
   hora TIME NOT NULL,
   motivo VARCHAR(255) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE Consulta (
 
 -- Tabla Medicamento
 CREATE TABLE Medicamento (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
   descripcion TEXT,
   vencimiento DATE NOT NULL,
@@ -59,14 +59,14 @@ CREATE TABLE Medicamento (
 
 -- Tabla Habitación
 CREATE TABLE Habitacion (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   piso INT,
   codigo VARCHAR(20) UNIQUE NOT NULL
 );
 
 -- Tabla Hospitalización
 CREATE TABLE Hospitalizacion (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fecha_ingreso DATE NOT NULL,
   fecha_alta DATE,
   medico_id INT,
@@ -79,7 +79,7 @@ CREATE TABLE Hospitalizacion (
 
 -- Tabla Medicación
 CREATE TABLE Medicacion (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fecha_administracion DATE NOT NULL,
   medicamento_id INT,
   paciente_id INT,
@@ -89,7 +89,7 @@ CREATE TABLE Medicacion (
 
 -- Tabla Factura
 CREATE TABLE Factura (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   fecha_emision DATE NOT NULL,
   estado VARCHAR(20) NOT NULL,
   paciente_id INT,
@@ -98,7 +98,7 @@ CREATE TABLE Factura (
 
 -- Tabla ItemFactura
 CREATE TABLE ItemFactura (
-  id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   factura_id INT,
   id_item INT NOT NULL,
   tipo_item VARCHAR(50) NOT NULL,
